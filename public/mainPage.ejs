@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Medidor KWh Serramar</title>
+    <meta charset= "UTF-8">
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+    
+   <div class="content">
+     <div id = "login">
+
+   <form action="/medicao" method = "POST">
+
+   <p>
+    <label for="email_login">03</label>
+     <input id="email_login" name="reg3" required="required" type="text" />
+    </p> 
+    
+    <label for="email_login">04</label>
+    <input id="email_login" name="reg4" required="required" type="text" />
+    </p>
+
+    <p>
+     <label for="email_login">06</label>
+     <input id="email_login" name="reg6" required="required" type="text" />
+    </p>
+
+    <p>
+     <label for="email_login">08</label>
+     <input id="email_login" name="reg8" required="required" type="text" />
+    </p>
+
+    <p>
+    <label for="email_login">10</label>
+      <input id="email_login" name="reg10" required="required" type="text" />
+    </p>
+
+    <p>
+    <label for="email_login">12</label>
+      <input id="email_login" name="reg12" required="required" type="text" />
+    </p>
+
+    <p>
+    <label for="email_login">14</label>
+      <input id="email_login" name="reg14" required="required" type="text" />
+    </p>
+
+     <p>
+       <input type="submit" value="Enviar Registros" />
+     </p>
+
+     <p>
+        Registros sendo feitos por: <b><%= docsUser.nome_cad%></b>
+     </p>
+  </form>
+
+  </div>
+  </div>
+
+<script type="text/javascript" src="js/script.js"><script>
+</body>
+</html>
