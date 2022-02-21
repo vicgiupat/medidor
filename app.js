@@ -39,6 +39,9 @@ function verificaToken(req, res, next) {
 
 }
 
+app.get('/selec', (req,res) => {
+    res.render('selecModulos')
+})
 
 app.get('/', (req, res) => {
     res.render('index')
@@ -55,7 +58,7 @@ app.get('/medicao', verificaToken, async (req, res, next) => {
     const userId = decodedId.id
 
     const docsUser = await Usuario.findById( userId )
-    res.render('mainPage', { docsUser });
+    res.render('medicaoKWH', { docsUser });
 
 })
 
@@ -115,25 +118,27 @@ app.post('/login', async (req, res) => {
 app.post('/medicao', async (req, res) => {
     let data = new Date()
 
-    const dia = data.getDate()
-    const mes = data.getMonth(2)+1
-    const ano = data.getFullYear()
+    const dia      = data.getDate()
+    const mes      = data.getMonth(2)+1
+    const ano      = data.getFullYear()
+    const hora     = data.getHours()
+    const minuto   = data.getMinutes()
+    const segundos = data.getSeconds()
 
-    const dataAtual = ('0' + dia).slice(-2) + "/" + ('0' + mes).slice(-2) + "/" + ano
+    const dataAtual = ('0' + dia).slice(-2) + "/" + ('0' + mes).slice(-2)     + "/" + ano
+    const horaAtual = ('0' + hora).slice(-2) + ":" + ('0' + minuto).slice(-2) + ":" + ('0' + segundos).slice(-2)
  
     const { reg3, reg4, reg6, reg8, reg10, reg12, reg14 } = req.body
 
-    const medicao = new Medicao({ dataAtual, reg3, reg4, reg6, reg8, reg10, reg12, reg14 })
+    const medicao = new Medicao({ dataAtual, horaAtual, reg3, reg4, reg6, reg8, reg10, reg12, reg14 })
 
     try {
         medicao.save()
-        res.status(200).json({msg: "Dados salvos com sucesso!!"})
+        res.status(200).redirect('/medicao')
     } catch (err) {
         console.log("Erro:", err)
     }
-
 })
-
 
 app.listen(3001)
 module.exports = app;

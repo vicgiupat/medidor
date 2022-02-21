@@ -14,6 +14,7 @@ const Usuario_model = new mongoose.Schema({
 
 const medicao = new mongoose.Schema({
     dataAtual: String,
+    horaAtual: String,
     reg3: Number,
     reg4: Number,
     reg6: Number,
