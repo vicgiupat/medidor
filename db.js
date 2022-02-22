@@ -12,7 +12,7 @@ const Usuario_model = new mongoose.Schema({
 }, { collection: 'usuario' }
 );
 
-const medicao = new mongoose.Schema({
+const medicaokwh = new mongoose.Schema({
     dataAtual: String,
     horaAtual: String,
     reg3: Number,
@@ -22,7 +22,7 @@ const medicao = new mongoose.Schema({
     reg10: Number,
     reg12: Number,
     reg14: Number,
-}, { collection: 'medicao' }
+}, { collection: 'medicaokwh' }
 );
 
-module.exports = { Mongoose: mongoose, Usuario_model: Usuario_model, medicao: medicao }
+module.exports = { Mongoose: mongoose, Usuario_model: Usuario_model, medicaokwh: medicaokwh }

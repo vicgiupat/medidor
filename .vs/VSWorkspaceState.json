@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\public"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\public\\consultakwh.ejs",
   "PreviewInSolutionExplorer": false
 }

@@ -20,9 +20,10 @@ const Usuario = db.Mongoose.model('usuario', db.Usuario_model, 'usuario')
 /*--------------------------------------------------------------------------*/
 
 /*-------------EXPORTAR MODEL DE MEDIÇÃO------------------------------------*/
-const Medicao = db.Mongoose.model('medicao', db.medicao, 'medicao')
+const Medicaokwh = db.Mongoose.model('medicaokwh', db.medicaokwh, 'medicaokwh')
 /*--------------------------------------------------------------------------*/
 
+///////////////////////MIDDLEWARE////////////////////////////////////////////////////////////////////////////////
 
 function verificaToken(req, res, next) {
     const token = req.cookies['userData']
@@ -38,6 +39,7 @@ function verificaToken(req, res, next) {
     })
 
 }
+///////////////////////SEÇÃO DE GETS////////////////////////////////////////////////////////////////////////////////
 
 app.get('/selec', (req,res) => {
     res.render('selecModulos')
@@ -62,6 +64,16 @@ app.get('/medicao', verificaToken, async (req, res, next) => {
 
 })
 
+app.get('/consultakwh', async (req, res) => {
+    const dtReg = req.body
+    const dtFormatada = dtReg.toString()
+    console.log(dtFormatada)
+    const Consultakwh = await Medicaokwh.find({})
+
+    res.render('consultakwh', { Consultakwh });
+})
+///////////////////////SEÇÃO DE POSTS////////////////////////////////////////////////////////////////////////////////
+
 app.post('/cadastro', async (req, res) => {
     const { nome_cad, telefone_cad, senha_cad } = req.body
 
@@ -74,7 +86,7 @@ app.post('/cadastro', async (req, res) => {
         res.redirect('login')
         console.log("cadastrado com sucesso!!")
     } catch (err) {
-            console.log(err)
+        console.log(err)
     }
 
 })
@@ -112,7 +124,7 @@ app.post('/login', async (req, res) => {
         return res.send("falha")
     }
 
-    res.status(200).redirect("/medicao")
+    res.status(200).redirect("/selec")
 })
 
 app.post('/medicao', async (req, res) => {
@@ -130,7 +142,7 @@ app.post('/medicao', async (req, res) => {
  
     const { reg3, reg4, reg6, reg8, reg10, reg12, reg14 } = req.body
 
-    const medicao = new Medicao({ dataAtual, horaAtual, reg3, reg4, reg6, reg8, reg10, reg12, reg14 })
+    const medicao = new Medicaokwh({ dataAtual, horaAtual, reg3, reg4, reg6, reg8, reg10, reg12, reg14 })
 
     try {
         medicao.save()
