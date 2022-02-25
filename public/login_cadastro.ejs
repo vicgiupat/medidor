@@ -5,13 +5,18 @@
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="container">
+        <a class="links" id="paralogin"></a>
+        <a class="links" id="paracadastro"></a>
         
+
         <div class="content">
-        <div id="login">
+            <!--FORMULÁRIO DE LOGIN-->
+            <div id="login">
                 <form method="post" action="/login">
                     <h1>Login</h1>
                     <p>
-                        <label for="email_login">Seu Telefone</label>
+                        <label for="telefone_login">Seu telefone</label>
                         <input id="email_login" name="telefone_login" required="required" type="text" placeholder="contato@htmlecsspro.com" />
                     </p>
 
@@ -31,10 +36,12 @@
 
                     <p class="link">
                         Ainda não tem conta?
-                        <a href="#paracadastro">Cadastre-se</a>
+                        <a href="/login">Cadastre-se</a>
                     </p>
                 </form>
             </div>
-            </div>
-        </body>
-    </html>
+        </div>
+    </div>
+
+</body>
+</html>

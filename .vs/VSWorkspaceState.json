@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public"
+    "\\controllers",
+    "\\public",
+    "\\routes"
   ],
-  "SelectedNode": "\\public\\consultakwh.ejs",
+  "SelectedNode": "\\public\\login_cadastro.ejs",
   "PreviewInSolutionExplorer": false
 }
