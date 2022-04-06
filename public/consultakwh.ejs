@@ -10,11 +10,18 @@
     <div class="content">
         <div id="login">
 
-            <ul>
-            <% Consultakwh.forEach(function(reg) { %>
-                <li> teste: <%= reg %></li>
-            <% }); %>
-            </ul>
+           <center><h3>Medicao dia <%= BuscaKwh.dataAtual %> </h3>
+           </br>
+            <table cellspacing='0' border=1 borderColor=#F7F7F7 ><tr bgcolor='#ffffff'><font size=2 face=arial color=#6d7065><td width = 150 align = 'center'>Tipos de registros </td > <td width= 150 align = 'center' > Registros em KWH</td ></tr>
+            <tr><font size=2 face=arial color=#6d7065><td align = 'center'> 3  </td><td align = 'center'><%=BuscaKwh.reg3 %> </td></font></tr> 
+             <tr><font size=2 face=arial color=#6d7065><td align = 'center'> 4 </td><td align = 'center'><%=BuscaKwh.reg4 %></td></font></tr> 
+            <tr><font size=2 face=arial color=#6d7065><td align = 'center'> 6  </td><td align = 'center'><%=BuscaKwh.reg6 %> </td></font></tr> 
+            <tr><font size=2 face=arial color=#6d7065><td align = 'center'> 8  </td><td align = 'center'><%=BuscaKwh.reg8 %> </td></font></tr> 
+            <tr><font size=2 face=arial color=#6d7065><td align = 'center'> 10 </td><td align = 'center'><%=BuscaKwh.reg10 %></td></font></tr> 
+            <tr><font size=2 face=arial color=#6d7065><td align = 'center'> 14 </td><td align = 'center'><%=BuscaKwh.reg14 %> </td></font></tr> 
+          </table></br></center>
+   
+               
 
         </div>
     </div>

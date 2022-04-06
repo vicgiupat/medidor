@@ -25,4 +25,9 @@ const medicaokwh = new mongoose.Schema({
 }, { collection: 'medicaokwh' }
 );
 
+
+/*medicaokwh.set('timestamps', {
+    createdAt: "crdAt",
+    UpdateAt:   'updAt'
+})*/
 module.exports = { Mongoose: mongoose, Usuario_model: Usuario_model, medicaokwh: medicaokwh }

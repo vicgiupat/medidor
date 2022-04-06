@@ -227,3 +227,20 @@ input[type="submit"]:hover{
     transform: translateX(-20px);
   }
 }
+#buscakwh {
+    position: relative;
+    top: 0px;
+    width: 15%;
+    padding: 18px 6% 60px 6%;
+    margin-left: 70%;
+    background: rgb(247, 247, 247);
+    border: 1px solid rgba(147, 184, 189,0.8);
+    -webkit-box-shadow: 5px;
+    border-radius: 5px;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}

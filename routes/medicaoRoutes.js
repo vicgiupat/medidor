@@ -4,7 +4,7 @@ const medicaoController = require('../controllers/medicaoController')
 
 Routes.get('/medicao',  medicaoController.medicaoGetPageKwh)
 
-//Routes.get('/consultakwh', medicaoController.medicaoGetConsultaKwh)
+Routes.get('/consultakwh', medicaoController.medicaoGetConsultaKwh)
 
 Routes.post('/medicao', medicaoController.medicaoPostKwh)
 
