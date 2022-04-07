@@ -7,18 +7,26 @@
 <body>
 
 
-   <div class="content">
+   <div class="content" id="contentItens">
 
-   <form action="/medicao" type="POST">
+   <form action="/medicao" type="GET">
     <input type="submit"  value = "Registrar KWh">
+    </form>  
+    
+    <form action="/medicaoKwhAdm" type="GET">
+    <input type="submit"  value = "Registrar KWh ADM">
     </form>
 
-    <form action="/medicao" type="POST">
+    <form action="/medicaoAgua" type="GET">
     <input type="submit" value = "Registrar Agua">
     </form>
 
-    <form action="/medicao" type="POST">
-    <input type="submit" value = "Registrar Ar">
+    <form action="/medicaoTemperaturaPa" type="GET">
+    <input type="submit" value = "Registrar temperatura PA">
+    </form>
+
+    <form action="/medicaoEnergiaRenz" type="GET">
+    <input type="submit" value = "Registrar Energia Renz">
     </form>
 
    </div>

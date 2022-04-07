@@ -5,8 +5,9 @@
   font-family: Arial,sans-serif;
 }
 
-body{
-  margin:10px;
+body {
+    margin: 10px;
+    background-color: rgb(120, 120, 120)
 }
 
 a{
@@ -235,6 +236,24 @@ input[type="submit"]:hover{
     margin-left: 70%;
     background: rgb(247, 247, 247);
     border: 1px solid rgba(147, 184, 189,0.8);
+    -webkit-box-shadow: 5px;
+    border-radius: 5px;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+#contentItens {
+    position: relative;
+    top: 0px;
+    height:40%;
+    width: 20%;
+    padding: 18px 6% 60px 6%;
+    margin-left: 35%;
+    background: rgb(247, 247, 247);
+    border: 5px solid gray;
     -webkit-box-shadow: 5px;
     border-radius: 5px;
     -webkit-animation-duration: 0.5s;

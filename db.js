@@ -25,9 +25,48 @@ const medicaokwh = new mongoose.Schema({
 }, { collection: 'medicaokwh' }
 );
 
+const medicaoKwhAdm = new mongoose.Schema({
+    dataAtual: String,
+    horaAtual: String,
+    reg1: Numeber
+}, { collection: 'medicaoKwhAdm' }
+);
+const medicaoAgua = new mongoose.Schema({
+    dataAtual: String,
+    horaAtual: String,
+    regSabesp: Number,
+    consumoDiario: Number
+}, { collection: 'medicaoAgua' }
+);
+
+const medicaoTemperaturaPa = new mongoose.Schema({
+    dataAtual: String,
+    horaAtual: String,
+    grilleto: Number,
+    divinoFogao: Number,
+    hashi: Number,
+    mcDonalds: Number,
+    extGrilleto: Number,
+    pracaEventos: Number
+} { collection: 'medicaoTemperaturaPa' }
+);
+
+const medicaoEnergiaRenz = new mongoose.Schema({
+    dataAtual: String,
+    horaAtual: String,
+    med1: Number,
+    med2: Number,
+    medLoja: Number
+}, { collection: 'medicaoEnergiaRenz' }
+);
+
 
 /*medicaokwh.set('timestamps', {
     createdAt: "crdAt",
     UpdateAt:   'updAt'
 })*/
-module.exports = { Mongoose: mongoose, Usuario_model: Usuario_model, medicaokwh: medicaokwh }
+module.exports = {
+    Mongoose: mongoose, Usuario_model: Usuario_model, medicaokwh: medicaokwh,
+    medicaoKwhAdm: medicaoKwhAdm, medicaoAgua: medicaoAgua, medicaoTemperaturaPa: medicaoTemperaturaPa,
+    medicaoEnergiaRenz: medicaoEnergiaRenz
+}
