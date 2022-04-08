@@ -10,62 +10,33 @@
    <div class="content">
    <div id = "login">
      <div id="medicaoKWH">
-       <center> <h3>Registro de KWh</h3> </center>
+       <center> <h3>Registro de KWh da ADM</h3> </center>
        </br>
     </div>
 
-   <form action="/medicao" method = "POST">
-
+   <form action="/medicaoKwhAdm" method = "POST">
+   <b>
    <p>
-    <label for="email_login">03</label>
-     <input id="email_login" name="reg3" required="required" type="text" />
-    </p> 
+    <label for="email_login">KWh da ADM</label>
+     <input id="email_login" name="reg1" required="required" type="text" />
+    </p>
     
-    <label for="email_login">04</label>
-    <input id="email_login" name="reg4" required="required" type="text" />
-    </p>
-
     <p>
-     <label for="email_login">06</label>
-     <input id="email_login" name="reg6" required="required" type="text" />
-    </p>
-
-    <p>
-     <label for="email_login">08</label>
-     <input id="email_login" name="reg8" required="required" type="text" />
-    </p>
-
-    <p>
-    <label for="email_login">10</label>
-      <input id="email_login" name="reg10" required="required" type="text" />
-    </p>
-
-    <p>
-    <label for="email_login">12</label>
-      <input id="email_login" name="reg12" required="required" type="text" />
-    </p>
-
-    <p>
-    <label for="email_login">14</label>
-      <input id="email_login" name="reg14" required="required" type="text" />
-    </p>
-
-     <p>
        <input type="submit" value="Enviar Registros" />
      </p>
-
-     <p>
+      <p>
         Registros sendo feitos por: <b><%= docsUser.nome_cad%></b>
      </p>
+    </b> 
   </form>
 
   </div>
 
   </div>
       <div id = "buscakwh">
-   <form action="/consultakwh" method="GET">
+   <form action="/consultaKwhAdm" method="GET">
      <center> <h3>Busque aqui os registros </h3> </center>
-    <input type="date" name="dtReg" placeholder="Consulte aqui">
+    <input type="date" name="dtRegKwhAdm" placeholder="Consulte aqui">
     <input type="submit" value="Buscar">
    </form>
  </div>

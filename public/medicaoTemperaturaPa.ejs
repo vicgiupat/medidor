@@ -10,44 +10,44 @@
    <div class="content">
    <div id = "login">
      <div id="medicaoKWH">
-       <center> <h3>Registro de KWh</h3> </center>
+       <center> <h3>Registro de Temperatura da PA</h3> </center>
        </br>
     </div>
 
-   <form action="/medicao" method = "POST">
-
+   <form action="/medicaoTemperaturaPa" method = "POST">
+   <b>
    <p>
-    <label for="email_login">03</label>
-     <input id="email_login" name="reg3" required="required" type="text" />
+    <label for="email_login">Grilleto</label>
+     <input id="email_login" name="grilleto" required="required" type="text" />
     </p> 
     
-    <label for="email_login">04</label>
-    <input id="email_login" name="reg4" required="required" type="text" />
+    <label for="email_login">Divino Fogao</label>
+    <input id="email_login" name="divinoFogao" required="required" type="text" />
     </p>
 
     <p>
-     <label for="email_login">06</label>
-     <input id="email_login" name="reg6" required="required" type="text" />
+     <label for="email_login">Hashi</label>
+     <input id="email_login" name="hashi" required="required" type="text" />
     </p>
 
     <p>
-     <label for="email_login">08</label>
-     <input id="email_login" name="reg8" required="required" type="text" />
+     <label for="email_login">MC Donalds</label>
+     <input id="email_login" name="mcDonalds" required="required" type="text" />
     </p>
 
     <p>
-    <label for="email_login">10</label>
-      <input id="email_login" name="reg10" required="required" type="text" />
+    <label for="email_login">Externo Grilleto</label>
+      <input id="email_login" name="extGrilleto" required="required" type="text" />
     </p>
 
     <p>
-    <label for="email_login">12</label>
-      <input id="email_login" name="reg12" required="required" type="text" />
+    <label for="email_login">Externo Patroni</label>
+      <input id="email_login" name="extPatroni" required="required" type="text" />
     </p>
 
     <p>
-    <label for="email_login">14</label>
-      <input id="email_login" name="reg14" required="required" type="text" />
+    <label for="email_login">Praca de Eventos</label>
+      <input id="email_login" name="pracaEventos" required="required" type="text" />
     </p>
 
      <p>
@@ -57,15 +57,16 @@
      <p>
         Registros sendo feitos por: <b><%= docsUser.nome_cad%></b>
      </p>
+     </b>
   </form>
 
   </div>
 
   </div>
       <div id = "buscakwh">
-   <form action="/consultakwh" method="GET">
+   <form action="/consultaTemperaturaPa" method="GET">
      <center> <h3>Busque aqui os registros </h3> </center>
-    <input type="date" name="dtReg" placeholder="Consulte aqui">
+    <input type="date" name="dtRegTemperaturaPa" placeholder="Consulte aqui">
     <input type="submit" value="Buscar">
    </form>
  </div>

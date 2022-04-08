@@ -28,7 +28,7 @@ const medicaokwh = new mongoose.Schema({
 const medicaoKwhAdm = new mongoose.Schema({
     dataAtual: String,
     horaAtual: String,
-    reg1: Numeber
+    reg1: Number
 }, { collection: 'medicaoKwhAdm' }
 );
 const medicaoAgua = new mongoose.Schema({
@@ -47,8 +47,9 @@ const medicaoTemperaturaPa = new mongoose.Schema({
     hashi: Number,
     mcDonalds: Number,
     extGrilleto: Number,
+    extPatroni: Number,
     pracaEventos: Number
-} { collection: 'medicaoTemperaturaPa' }
+}, { collection: 'medicaoTemperaturaPa' }
 );
 
 const medicaoEnergiaRenz = new mongoose.Schema({

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+ <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content">
+        <div id="login">
+
+           <center><h3>Medicao de Agua dia <%= BuscaKwh.dataAtual %> </h3>
+           </br>
+            <table cellspacing='0' border=1 borderColor=#F7F7F7 ><tr bgcolor='#ffffff'><font size=2 face=arial color=#6d7065><td width = 150 align = 'center'>Tipos de registros </td > <td width= 150 align = 'center' > Registros</td ></tr>
+            <tr><font size=2 face=arial color=#6d7065><td align = 'center'> Registro Sabesp </td><td align = 'center'><%=BuscaKwh.regSabesp %> </td></font></tr> 
+             <tr><font size=2 face=arial color=#6d7065><td align = 'center'>Consumo Diario </td><td align = 'center'><%=BuscaKwh.consumoDiario %></td></font></tr>
+          </table></br></center>
+   
+               
+
+        </div>
+    </div>
+</body>
+</html>

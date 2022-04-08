@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer')
 const db         = require('../db')
 const moment     = require('moment')
 const Usuario    = db.Mongoose.model('usuario', db.Usuario_model, 'usuario') 
-const Medicaokwh = db.Mongoose.model('medicaokwh', db.medicaoKwhAdm, 'medicaokwh')
+const Medicaokwh = db.Mongoose.model('medicaokwh', db.medicaokwh, 'medicaokwh')
 
 //ROTA QUE ENTREGA O FORMULARIO DE MEDIÇÃO E RETORNA O USUARIO A PARTIR DO TOKEN
 const medicaoGetPageKwh = async (req, res, next) => {
@@ -41,7 +41,7 @@ const medicaoPostKwh = async (req, res) => {
 
     try {
         medicao.save()
-        res.status(200).redirect('/medicao')
+        res.status(200).redirect('/')
     } catch (err) {
         console.log("Erro:", err)
     }
@@ -62,7 +62,7 @@ const medicaoPostKwh = async (req, res) => {
         from: user,
         to: "vribeiro@serramarshopping.com.br",
         subject: "teste de envio",
-        html: " <h3><center>Medicao dia " + dataAtual + "</center></h3>"
+        html: " <h3><center>Medicao KWh do Shopping dia " + dataAtual + "</center></h3>"
 
             + " <table cellpadding='1' cellspacing='0' border=1 borderColor=#F7F7F7 ><tr bgcolor='#ffffff'><font size=2 face=arial color=#6d7065><td width = 150 align = 'center'>Tipos de registros </td > <td width= 150 align = 'center' > Registros em KWH</td ></tr > "
             + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>3</td><td align = 'center'>" + reg3 + "</td></font></tr> "

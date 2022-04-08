@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer')
 const db = require('../db')
 const moment = require('moment')
 const Usuario = db.Mongoose.model('usuario', db.Usuario_model, 'usuario')
-const Medicaokwh = db.Mongoose.model('medicaoKwhAdm', db.medicaoKwhAdm, 'medicaoKwhAdm')
+const MedicaoAgua = db.Mongoose.model('medicaoAgua', db.medicaoAgua, 'medicaoAgua')
 
 const medicaoGetPageAgua = async (req, res, next) => {
 
@@ -34,11 +34,11 @@ const medicaoPostAgua = async (req, res) => {
 
     const { regSabesp, consumoDiario } = req.body
 
-    const medicao = new Medicaokwh({ dataAtual, horaAtual, regSabesp, consumoDiario })
+    const medicao = new MedicaoAgua({ dataAtual, horaAtual, regSabesp, consumoDiario })
 
     try {
         medicao.save()
-        res.status(200).redirect('/index')
+        res.status(200).redirect('/')
     } catch (err) {
         console.log("Erro:", err)
     }
@@ -59,11 +59,11 @@ const medicaoPostAgua = async (req, res) => {
         from: user,
         to: "vribeiro@serramarshopping.com.br",
         subject: "teste de envio",
-        html: " <h3><center>Medicao KWh ADM dia " + dataAtual + "</center></h3>"
+        html: " <h3><center>Medicao de Agua dia " + dataAtual + "</center></h3>"
 
             + " <table cellpadding='1' cellspacing='0' border=1 borderColor=#F7F7F7 ><tr bgcolor='#ffffff'><font size=2 face=arial color=#6d7065><td width = 150 align = 'center'>Tipos de registros </td > <td width= 150 align = 'center' > Registros em KWH</td ></tr > "
-            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>3</td><td align = 'center'>" + regSabesp + "</td></font></tr> "
-            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>3</td><td align = 'center'>" + consumoDiario + "</td></font></tr> "
+            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>Medidor Sabesp</td><td align = 'center'>" + regSabesp + "</td></font></tr> "
+            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>Consumo Diario</td><td align = 'center'>" + consumoDiario + "</td></font></tr> "
             + "</table></br>"
 
     }).then(info => {
@@ -76,12 +76,12 @@ const medicaoPostAgua = async (req, res) => {
 }
 
 const medicaoGetConsultaAgua = async (req, res) => {
-    const dtReg = req.query.dtReg
+    const dtReg = req.query.dtRegAgua
     const dtFormatada = moment(dtReg).format('DD/MM/YYYY')
     console.log(dtFormatada)
-    const BuscaKwh = await Medicaokwh.findOne({ dataAtual: dtFormatada })
+    const BuscaKwh = await MedicaoAgua.findOne({ dataAtual: dtFormatada })
 
-    res.render('consultakwh', { BuscaKwh });
+    res.render('consultaAgua', { BuscaKwh });
 }
 
 

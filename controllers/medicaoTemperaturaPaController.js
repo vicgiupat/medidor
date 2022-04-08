@@ -3,10 +3,10 @@ const nodemailer = require('nodemailer')
 const db = require('../db')
 const moment = require('moment')
 const Usuario = db.Mongoose.model('usuario', db.Usuario_model, 'usuario')
-const Medicaokwh = db.Mongoose.model('medicaokwh', db.medicaoTemperaturaPa, 'medicaokwh')
+const MedicaoTemperaturaPa = db.Mongoose.model('medicaoTemperaturaPa', db.medicaoTemperaturaPa, 'medicaoTemperaturaPa')
 
 //ROTA QUE ENTREGA O FORMULARIO DE MEDIÇÃO E RETORNA O USUARIO A PARTIR DO TOKEN
-const medicaoGetPageKwh = async (req, res, next) => {
+const medicaoGetPageTemperaturaPa = async (req, res, next) => {
 
     const token = req.cookies['userData']
     if (!token) return res.redirect('/login')
@@ -19,7 +19,7 @@ const medicaoGetPageKwh = async (req, res, next) => {
 }
 
 //ROTA QUE ENCAMINHA OS DADOS DO FORMULÁRIO PARA O SERVIDOR
-const medicaoPostKwh = async (req, res) => {
+const medicaoPostTemperaturaPa = async (req, res) => {
 
     let data = new Date()
     const dia = data.getDate()
@@ -35,13 +35,22 @@ const medicaoPostKwh = async (req, res) => {
 
     //const dataAtual = new Date().toISOString('pt-BR').replace(/T/, ' ').replace(/\..+/, '')
 
-    const { reg3, reg4, reg6, reg8, reg10, reg12, reg14 } = req.body
+    const { grilleto, divinoFogao, hashi, mcDonalds, extGrilleto, extPatroni, pracaEventos } = req.body
 
-    const medicao = new Medicaokwh({ dataAtual, horaAtual, reg3, reg4, reg6, reg8, reg10, reg12, reg14 })
+    const medicao = new MedicaoTemperaturaPa({ dataAtual, horaAtual, grilleto, divinoFogao, hashi, mcDonalds, extGrilleto, extPatroni, pracaEventos})
+    /*grilleto
+divinoFogao
+hashi
+mcDonalds
+extGrilleto
+extPatroni
+pracaEventos
+*/
+
 
     try {
         medicao.save()
-        res.status(200).redirect('/medicao')
+        res.status(200).redirect('/')
     } catch (err) {
         console.log("Erro:", err)
     }
@@ -65,12 +74,13 @@ const medicaoPostKwh = async (req, res) => {
         html: " <h3><center>Medicao temperatura PA dia " + dataAtual + "</center></h3>"
 
             + " <table cellpadding='1' cellspacing='0' border=1 borderColor=#F7F7F7 ><tr bgcolor='#ffffff'><font size=2 face=arial color=#6d7065><td width = 150 align = 'center'>Tipos de registros </td > <td width= 150 align = 'center' > Registros em KWH</td ></tr > "
-            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>3</td><td align = 'center'>" + grilleto + "</td></font></tr> "
-            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>4</td><td align = 'center'>" + divinoFogao + "</td></font></tr> "
-            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>6</td><td align = 'center'>" + hashi + "</td></font></tr> "
-            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>8</td><td align = 'center'>" + mcDonalds + "</td></font></tr> "
-            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>10 </td><td align = 'center'>" + extGrilleto + "</td></font></tr> "
-            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>12 </td><td align = 'center'>" + pracaEventos + "</td></font></tr> "
+            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>Grilleto</td><td align = 'center'>" + grilleto + "</td></font></tr> "
+            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>Divino Fogao</td><td align = 'center'>" + divinoFogao + "</td></font></tr> "
+            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>Hashi</td><td align = 'center'>" + hashi + "</td></font></tr> "
+            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>McDonalds</td><td align = 'center'>" + mcDonalds + "</td></font></tr> "
+            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>Externo Grilleto</td><td align = 'center'>" + extGrilleto + "</td></font></tr> "
+            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>Externo Patroni</td><td align = 'center'>" + extPatroni + "</td></font></tr> "
+            + " <tr><font size=2 face=arial color=#6d7065><td align = 'center'>Praca de eventos </td><td align = 'center'>" + pracaEventos + "</td></font></tr> "
             + "</table></br>"  //reg3, reg4, reg6, reg8, reg10, reg12, reg14
 
     }).then(info => {
@@ -82,13 +92,13 @@ const medicaoPostKwh = async (req, res) => {
     console.log(sendMessage)
 }
 
-const medicaoGetConsultaKwh = async (req, res) => {
-    const dtReg = req.query.dtReg
+const medicaoGetConsultaTemperaturaPa = async (req, res) => {
+    const dtReg = req.query.dtRegTemperaturaPa
     const dtFormatada = moment(dtReg).format('DD/MM/YYYY')
     console.log(dtFormatada)
-    const BuscaKwh = await Medicaokwh.findOne({ dataAtual: dtFormatada })
+    const BuscaKwh = await MedicaoTemperaturaPa.findOne({ dataAtual: dtFormatada })
 
-    res.render('consultakwh', { BuscaKwh });
+    res.render('consultaTemperaturaPa', { BuscaKwh });
 }
 
 
@@ -98,7 +108,7 @@ const medicaoGetConsultaKwh = async (req, res) => {
 
 
 module.exports = {
-    medicaoGetPageKwh,
-    medicaoGetConsultaKwh,
-    medicaoPostKwh
+    medicaoGetPageTemperaturaPa,
+    medicaoGetConsultaTemperaturaPa,
+    medicaoPostTemperaturaPa
 }

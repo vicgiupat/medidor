@@ -16,24 +16,24 @@ Routes.get('/consultakwh', medicaoController.medicaoGetConsultaKwh)
 Routes.post('/medicao', medicaoController.medicaoPostKwh)
 ////////////////////////////////////////////////////////////////////////////////////////////
 //ROTAS PARA MEDI플O DE AGUA
-Routes.get('/medicao', medicaoAguaController.medicaoGetPageAgua)
-Routes.get('/consultakwh', medicaoAguaController.medicaoGetConsultaAgua)
-Routes.post('/medicao', medicaoAguaController.medicaoPostAgua)
+Routes.get('/medicaoAgua', medicaoAguaController.medicaoGetPageAgua)
+Routes.get('/consultaAgua', medicaoAguaController.medicaoGetConsultaAgua)
+Routes.post('/medicaoAgua', medicaoAguaController.medicaoPostAgua)
 ////////////////////////////////////////////////////////////////////////////////////////////
 //ROTAS PARA MEDI플O DE KWH DA ADM
-Routes.get('/medicao', medicaoKwhAdmController.medicaoGetPageKwhAdm)
-Routes.get('/consultakwh', medicaoKwhAdmController.medicaoGetConsultaKwhAdm)
-Routes.post('/medicao', medicaoKwhAdmController.medicaoPostKwhAdm)
+Routes.get('/medicaoKwhAdm', medicaoKwhAdmController.medicaoGetPageKwhAdm)
+Routes.get('/consultaKwhAdm', medicaoKwhAdmController.medicaoGetConsultaKwhAdm)
+Routes.post('/medicaoKwhAdm', medicaoKwhAdmController.medicaoPostKwhAdm)
 ////////////////////////////////////////////////////////////////////////////////////////////
 //ROTAS PARA MEDI플O DE TEMPERATURA PA
-Routes.get('/medicao', medicaoTemperaturaPaController.medicaoGetPageKwh)
-Routes.get('/consultakwh', medicaoTemperaturaPaController.medicaoGetConsultaKwh)
-Routes.post('/medicao', medicaoTemperaturaPaController.medicaoPostKwh)
+Routes.get('/medicaoTemperaturaPa', medicaoTemperaturaPaController.medicaoGetPageTemperaturaPa)
+Routes.get('/consultaTemperaturaPa', medicaoTemperaturaPaController.medicaoGetConsultaTemperaturaPa)
+Routes.post('/medicaoTemperaturaPa', medicaoTemperaturaPaController.medicaoPostTemperaturaPa)
 ////////////////////////////////////////////////////////////////////////////////////////////
 //ROTAS PARA MEDI플O DE ENERGIA RENZ
-Routes.get('/medicao', medicaoEnergiaRenzController.medicaoGetPageKwh)
-Routes.get('/consultakwh', medicaoEnergiaRenzController.medicaoGetConsultaKwh)
-Routes.post('/medicao', medicaoEnergiaRenzController.medicaoPostKwh)
+Routes.get('/medicaoEnergiaRenz', medicaoEnergiaRenzController.medicaoGetPageEnergiaRenz)
+Routes.get('/consultaEnergiaRenz', medicaoEnergiaRenzController.medicaoGetConsultaEnergiaRenz)
+Routes.post('/medicaoEnergiaRenz', medicaoEnergiaRenzController.medicaoPostEnergiaRenz)
 
 
 module.exports = Routes;
