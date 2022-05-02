@@ -21,7 +21,7 @@ const medicaoGetPageTemperaturaPa = async (req, res, next) => {
 //ROTA QUE ENCAMINHA OS DADOS DO FORMULÁRIO PARA O SERVIDOR
 const medicaoPostTemperaturaPa = async (req, res) => {
 
-    let data = new Date()
+   /* let data = new Date()
     const dia = data.getDate()
     const mes = data.getMonth(2) + 1
     const ano = data.getFullYear()
@@ -31,11 +31,11 @@ const medicaoPostTemperaturaPa = async (req, res) => {
 
 
     const dataAtual = ('0' + dia).slice(-2) + "/" + ('0' + mes).slice(-2) + "/" + ano
-    const horaAtual = ('0' + hora).slice(-2) + ":" + ('0' + minuto).slice(-2) + ":" + ('0' + segundos).slice(-2)
+    const horaAtual = ('0' + hora).slice(-2) + ":" + ('0' + minuto).slice(-2) + ":" + ('0' + segundos).slice(-2)*/
 
     //const dataAtual = new Date().toISOString('pt-BR').replace(/T/, ' ').replace(/\..+/, '')
 
-    const { grilleto, divinoFogao, hashi, mcDonalds, extGrilleto, extPatroni, pracaEventos } = req.body
+    const { dataAtual, horaAtual, grilleto, divinoFogao, hashi, mcDonalds, extGrilleto, extPatroni, pracaEventos } = req.body
 
     const medicao = new MedicaoTemperaturaPa({ dataAtual, horaAtual, grilleto, divinoFogao, hashi, mcDonalds, extGrilleto, extPatroni, pracaEventos})
     /*grilleto
@@ -94,9 +94,10 @@ pracaEventos
 
 const medicaoGetConsultaTemperaturaPa = async (req, res) => {
     const dtReg = req.query.dtRegTemperaturaPa
-    const dtFormatada = moment(dtReg).format('DD/MM/YYYY')
-    console.log(dtFormatada)
-    const BuscaKwh = await MedicaoTemperaturaPa.findOne({ dataAtual: dtFormatada })
+    //const dtFormatada = moment(dtReg).format('DD/MM/YYYY')
+    console.log(dtReg)
+    const BuscaKwh = await MedicaoTemperaturaPa.find({ dataAtual: dtReg })
+    //const dtFormatada = dateFormat(BuscaKwh.dataAtual,"DD/MM/YYYY")
 
     res.render('consultaTemperaturaPa', { BuscaKwh });
 }

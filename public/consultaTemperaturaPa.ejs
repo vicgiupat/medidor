@@ -1,30 +1,39 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="pt">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Consulta Temperatura PA</title>
  <link href="style.css" rel="stylesheet" />
 </head>
 <body>
+  
     <div class="content">
+
         <div id="login">
-
-           <center><h3>Medicao Temperatura PA dia <%= BuscaKwh.dataAtual %> </h3>
+           
+           <% BuscaKwh.forEach((user)=>{ %>
+           <center><h3>Medição Temperatura PA as <%= user.horaAtual %></h3>
            </br>
-            <table cellspacing='0' border=1 borderColor=#F7F7F7 ><tr bgcolor='#ffffff'><font size=2 face=arial color=#6d7065><td width = 150 align = 'center'>Tipos de registros </td > <td width= 150 align = 'center' > Registros em KWH</td ></tr>
-            <tr><font size=2 face=arial color=#6d7065><td align = 'center'> Grilleto  </td><td align = 'center'><%=BuscaKwh.grilleto %> </td></font></tr> 
-             <tr><font size=2 face=arial color=#6d7065><td align = 'center'> Divino Fogao </td><td align = 'center'><%=BuscaKwh.divinoFogao %></td></font></tr> 
-            <tr><font size=2 face=arial color=#6d7065><td align = 'center'> Hashi  </td><td align = 'center'><%=BuscaKwh.hashi %> </td></font></tr> 
-            <tr><font size=2 face=arial color=#6d7065><td align = 'center'> McDonalds  </td><td align = 'center'><%=BuscaKwh.mcDonalds %> </td></font></tr> 
-            <tr><font size=2 face=arial color=#6d7065><td align = 'center'> Externo Grilleto </td><td align = 'center'><%=BuscaKwh.extGrilleto %></td></font></tr> 
-            <tr><font size=2 face=arial color=#6d7065><td align = 'center'> Externo Patroni </td><td align = 'center'><%=BuscaKwh.extPatroni %> </td></font></tr> 
-            <tr><font size=2 face=arial color=#6d7065><td align = 'center'> Praca de Eventos</td><td align = 'center'><%=BuscaKwh.pracaEventos %> </td></font></tr> 
-          </table></br></center>
-   
-               
 
-        </div>
+           
+            <table cellspacing='0' border=1 borderColor=#00000 ><tr bgcolor='#ffffff'><font size=2 face=arial color=#000000><td width = 150 align = 'center'>Tipos de registros </td > <td width= 150 align = 'center' > Registros em KWH</td ></tr>
+            <tr><font size=2 face=arial color=#000000><td align = 'center'> Grilleto  </td><td align = 'center'>       <%=user.grilleto %> </td></font></tr> 
+             <tr><font size=2 face=arial color=#000000><td align = 'center'> Divino Fogao </td><td align = 'center'>   <%=user.divinoFogao %></td></font></tr> 
+            <tr><font size=2 face=arial color=#000000><td align = 'center'> Hashi  </td><td align = 'center'>          <%=user.hashi %> </td></font></tr> 
+            <tr><font size=2 face=arial color=#000000><td align = 'center'> McDonalds  </td><td align = 'center'>      <%=user.mcDonalds %> </td></font></tr> 
+            <tr><font size=2 face=arial color=#000000><td align = 'center'> Externo Grilleto </td><td align = 'center'><%=user.extGrilleto %></td></font></tr> 
+            <tr><font size=2 face=arial color=#000000><td align = 'center'> Externo Patroni </td><td align = 'center'> <%=user.extPatroni %> </td></font></tr> 
+            <tr><font size=2 face=arial color=#000000><td align = 'center'> Praca de Eventos</td><td align = 'center'> <%=user.pracaEventos %> </td></font></tr> 
+          </table></br>
+          
+
+          </br>
+          </center>
+          <%})%>
+
+          </div>   
     </div>
+    
 </body>
 </html>

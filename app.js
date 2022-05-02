@@ -34,10 +34,10 @@ function verificaToken(req, res, next) {
     if (!token) res.redirect('login')
 
     jwt.verify(token, process.env.SECRET, function (err, decoded) {
-        if (err) return res.send("Problemas com a autenticação! Consulte o Administrador do sistema.")
+        if (err) console.log("Problemas com a autenticação! Consulte o Administrador do sistema.")
 
         UserId = decoded.id
-        next()
+       next()
     })
 }
 

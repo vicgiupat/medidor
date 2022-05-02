@@ -67,9 +67,9 @@ const medicaoPostAgua = async (req, res) => {
             + "</table></br>"
 
     }).then(info => {
-        res.send(info)
+        console.log(info)
     }).catch(error => {
-        res.send(error)
+        console.log(error)
     })
 
     console.log(sendMessage)

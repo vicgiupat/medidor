@@ -1,12 +1,13 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+
+<html lang="pt-BR">
 <head>
     <title>Medidor KWh Serramar</title>
     <meta charset= "UTF-8">
-    <link href="style.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet">
+
 </head>
 <body>
-
-
    <div class="content">
    <div id = "login">
      <div id="medicaoKWH">
@@ -16,6 +17,14 @@
 
    <form action="/medicaoTemperaturaPa" method = "POST">
    <b>
+    <p>
+    <label for="email_login">Data da leitura</label>
+     <input id="email_login" name="dataAtual" required="required" type="date" />
+    </p> </br>
+     <p>
+    <label for="email_login">Hora do registro</label>
+     <input id="email_login" name="horaAtual" required="required" type="time" />
+    </p> </br>
    <p>
     <label for="email_login">Grilleto</label>
      <input id="email_login" name="grilleto" required="required" type="text" />
@@ -70,7 +79,6 @@
     <input type="submit" value="Buscar">
    </form>
  </div>
-
 <script type="text/javascript" src="js/script.js"><script>
 </body>
 </html>

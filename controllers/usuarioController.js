@@ -33,7 +33,7 @@ const usuarioPostLogin = async (req, res) => {
         let atributos_cookie = {
             path: "/",
             sameSite: true,
-            maxAge: 900000,
+            maxAge: 1800000,
             httpOnly: true
         }
         res.cookie('userData', token, atributos_cookie)
