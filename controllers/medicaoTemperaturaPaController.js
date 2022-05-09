@@ -21,7 +21,7 @@ const medicaoGetPageTemperaturaPa = async (req, res, next) => {
 //ROTA QUE ENCAMINHA OS DADOS DO FORMULÁRIO PARA O SERVIDOR
 const medicaoPostTemperaturaPa = async (req, res) => {
 
-   /* let data = new Date()
+    /*let data = new Date()
     const dia = data.getDate()
     const mes = data.getMonth(2) + 1
     const ano = data.getFullYear()
@@ -38,15 +38,6 @@ const medicaoPostTemperaturaPa = async (req, res) => {
     const { dataAtual, horaAtual, grilleto, divinoFogao, hashi, mcDonalds, extGrilleto, extPatroni, pracaEventos } = req.body
 
     const medicao = new MedicaoTemperaturaPa({ dataAtual, horaAtual, grilleto, divinoFogao, hashi, mcDonalds, extGrilleto, extPatroni, pracaEventos})
-    /*grilleto
-divinoFogao
-hashi
-mcDonalds
-extGrilleto
-extPatroni
-pracaEventos
-*/
-
 
     try {
         medicao.save()
@@ -98,7 +89,7 @@ const medicaoGetConsultaTemperaturaPa = async (req, res) => {
     console.log(dtReg)
     const BuscaKwh = await MedicaoTemperaturaPa.find({ dataAtual: dtReg })
     //const dtFormatada = dateFormat(BuscaKwh.dataAtual,"DD/MM/YYYY")
-
+    if (BuscaKwh === 0) return res.send('ESSA DATA RETORNOU NÃO POSSUI DADOS')
     res.render('consultaTemperaturaPa', { BuscaKwh });
 }
 

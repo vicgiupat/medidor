@@ -28,11 +28,11 @@ const medicaoPostEnergiaRenz = async (req, res) => {
     const segundos = data.getSeconds()
 
 
-    const dataAtual = ('0' + dia).slice(-2) + "/" + ('0' + mes).slice(-2) + "/" + ano
+    //const dataAtual = ('0' + dia).slice(-2) + "/" + ('0' + mes).slice(-2) + "/" + ano
     const horaAtual = ('0' + hora).slice(-2) + ":" + ('0' + minuto).slice(-2) + ":" + ('0' + segundos).slice(-2)
 
 
-    const { med1, med2, medLoja } = req.body
+    const { dataAtual, med1, med2, medLoja } = req.body
 
     const medicao = new MedicaoEnergiaRenz({ dataAtual, horaAtual, med1, med2, medLoja })
 
@@ -78,10 +78,10 @@ const medicaoPostEnergiaRenz = async (req, res) => {
 
 const medicaoGetConsultaEnergiaRenz = async (req, res) => {
     const dtReg = req.query.dtRegEnergiaRenz
-    const dtFormatada = moment(dtReg).format('DD/MM/YYYY')
-    console.log(dtFormatada)
-    const BuscaKwh = await MedicaoEnergiaRenz.findOne({ dataAtual: dtFormatada })
-
+    //const dtFormatada = moment(dtReg).format('DD/MM/YYYY')
+    console.log(dtReg)
+    const BuscaKwh = await MedicaoEnergiaRenz.findOne({ dataAtual: dtReg })
+    if (!BuscaKwh) return res.send('ESSA DATA RETORNOU NÃO POSSUI DADOS')
     res.render('consultaEnergiaRenz', { BuscaKwh });
 }
 

@@ -28,11 +28,11 @@ const medicaoPostAgua = async (req, res) => {
     const segundos = data.getSeconds()
 
 
-    const dataAtual = ('0' + dia).slice(-2) + "/" + ('0' + mes).slice(-2) + "/" + ano
+    //const dataAtual = ('0' + dia).slice(-2) + "/" + ('0' + mes).slice(-2) + "/" + ano
     const horaAtual = ('0' + hora).slice(-2) + ":" + ('0' + minuto).slice(-2) + ":" + ('0' + segundos).slice(-2)
 
 
-    const { regSabesp, consumoDiario } = req.body
+    const { dataAtual, regSabesp, consumoDiario } = req.body
 
     const medicao = new MedicaoAgua({ dataAtual, horaAtual, regSabesp, consumoDiario })
 
@@ -77,9 +77,11 @@ const medicaoPostAgua = async (req, res) => {
 
 const medicaoGetConsultaAgua = async (req, res) => {
     const dtReg = req.query.dtRegAgua
-    const dtFormatada = moment(dtReg).format('DD/MM/YYYY')
-    console.log(dtFormatada)
-    const BuscaKwh = await MedicaoAgua.findOne({ dataAtual: dtFormatada })
+    //const dtFormatada = moment(dtReg).format('DD/MM/YYYY')
+    console.log(dtReg)
+    const BuscaKwh = await MedicaoAgua.findOne({ dataAtual: dtReg })
+
+    if (!BuscaKwh) return res.send('ESSA DATA RETORNOU NÃO POSSUI DADOS')
 
     res.render('consultaAgua', { BuscaKwh });
 }

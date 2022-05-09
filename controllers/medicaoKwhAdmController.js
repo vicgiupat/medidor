@@ -28,11 +28,11 @@ const medicaoPostKwhAdm = async (req, res) => {
     const segundos = data.getSeconds()
 
 
-    const dataAtual = ('0' + dia).slice(-2) + "/" + ('0' + mes).slice(-2) + "/" + ano
+    //const dataAtual = ('0' + dia).slice(-2) + "/" + ('0' + mes).slice(-2) + "/" + ano
     const horaAtual = ('0' + hora).slice(-2) + ":" + ('0' + minuto).slice(-2) + ":" + ('0' + segundos).slice(-2)
 
 
-    const { reg1 } = req.body
+    const { dataAtual, reg1 } = req.body
 
     const medicao = new MedicaoKwhAdm({ dataAtual, horaAtual, reg1 })
 
@@ -76,10 +76,10 @@ const medicaoPostKwhAdm = async (req, res) => {
 
 const medicaoGetConsultaKwhAdm = async (req, res) => {
     const dtReg = req.query.dtRegKwhAdm
-    const dtFormatada = moment(dtReg).format('DD/MM/YYYY')
-    console.log(dtFormatada)
-    const BuscaKwh = await MedicaoKwhAdm.findOne({ dataAtual: dtFormatada })
-
+    //const dtFormatada = moment(dtReg).format('DD/MM/YYYY')
+    console.log(dtReg)
+    const BuscaKwh = await MedicaoKwhAdm.findOne({ dataAtual: dtReg })
+    if (!BuscaKwh) return res.send('ESSA DATA RETORNOU NÃO POSSUI DADOS')
     res.render('consultaKwhAdm', { BuscaKwh });
 }
 
